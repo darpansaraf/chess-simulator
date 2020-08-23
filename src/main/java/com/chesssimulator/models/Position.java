@@ -17,17 +17,9 @@ public class Position {
         return row;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
     public String getDisplayPosition(){
         int unicode = 65;
         char character = (char) (unicode + this.column);
-        return String.valueOf(character) + this.getRow();
+        return String.valueOf(character) + (this.getRow() + 1);
     }
 }

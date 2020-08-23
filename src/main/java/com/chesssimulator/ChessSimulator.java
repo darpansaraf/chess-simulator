@@ -1,5 +1,6 @@
 package com.chesssimulator;
 
+import com.chesssimulator.exceptions.InvalidInputException;
 import com.chesssimulator.models.ChessPiece;
 import com.chesssimulator.models.Position;
 
@@ -23,21 +24,26 @@ public class ChessSimulator {
                 return possiblePositions.stream().map(Position::getDisplayPosition).collect(Collectors.joining(","));
             } catch (Exception ex){
                 ex.printStackTrace();
+                throw ex;
             }
         }
         else
             throw new RuntimeException("Invalid Input");
-
-        return null;
     }
 
     private static Position validateAndGetChessPiecePosition(String input) {
         char[] positionAsCharArray = input.toCharArray();
-        int column = ((int) positionAsCharArray[0] - 65); //Indexing starts from 0
-        int row = Integer.parseInt(String.valueOf(positionAsCharArray[1]));
+        int column = ((int) positionAsCharArray[0] - 65);
+
+        int row = -1;
+        try {
+            row = Integer.parseInt((input.substring(1))) - 1;
+        } catch (NumberFormatException ex){
+            throw new InvalidInputException("Invalid Position");
+        }
 
         if (row > CommonConstants.ChessBoard.MAX_ROWS || column > CommonConstants.ChessBoard.MAX_COLUMNS)
-            throw new RuntimeException("Invalid Position");
+            throw new InvalidInputException("Invalid Position");
 
         return new Position(row, column);
     }
@@ -65,7 +71,7 @@ public class ChessSimulator {
                 break;
         }
         if (chessPiece == null)
-            throw new RuntimeException("Invalid Chess Piece Name");
+            throw new InvalidInputException("Invalid Chess Piece Name");
         return chessPiece;
     }
 
