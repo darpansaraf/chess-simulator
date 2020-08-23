@@ -33,7 +33,7 @@ public class ChessSimulator {
 
     private static Position validateAndGetChessPiecePosition(String input) {
         char[] positionAsCharArray = input.toCharArray();
-        int column = ((int) positionAsCharArray[0] - 65) - 1; //Indexing starts from 0
+        int column = ((int) positionAsCharArray[0] - 65); //Indexing starts from 0
         int row = Integer.parseInt(String.valueOf(positionAsCharArray[1]));
 
         if (row > CommonConstants.ChessBoard.MAX_ROWS || column > CommonConstants.ChessBoard.MAX_COLUMNS)
