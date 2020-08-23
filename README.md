@@ -19,7 +19,7 @@ To build the application and get started follow the below steps
  Step 2:
     In terminal change the project's root directory
 
-    cd chess-game
+    cd chess-simulator
     
  Step 3: 
     Run build without test use the below command
