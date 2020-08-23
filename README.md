@@ -26,7 +26,19 @@ To build the application and get started follow the below steps
 
     ./gradlew clean build -x test
     
+    After running the above command if you face the following error 
+      Error: Could not find or load main class org.gradle.wrapper.GradleWrapperMain
+      Caused by: java.lang.ClassNotFoundException: org.gradle.wrapper.GradleWrapperMain
+      
+    Please try building the project by using the following command:
+    
+    %GRADLE_HOME%\gradle clean build -x test
+
  Steps 4:
     To run unit tests on local
 
-    ./gradlew clean test
+    ./gradlew clean test 
+    
+    OR
+    
+    %GRADLE_HOME%\gradle clean test
