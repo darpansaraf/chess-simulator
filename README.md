@@ -43,10 +43,10 @@ To build the application and get started follow the below steps
     
     %GRADLE_HOME%\gradle clean test
     
-    ## Test Cases
+## Test Cases
     This application uses an external library junit for Test cases 
     
-    ## Implementation Approach
+## Implementation Approach
     This application assumes that it is traversing a 2D-Array data structure to calculate all possbile moves of a particular chess-piece from a given position. It does not         store the state of the chess-board in a 2D-Array. It increments & decrements the rows and columns values according the movement of a chess-piece to calulate all possible       positions where a chess-piece can move.
     
     
