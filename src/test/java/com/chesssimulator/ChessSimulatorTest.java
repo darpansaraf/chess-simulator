@@ -12,10 +12,12 @@ import static org.junit.Assert.assertTrue;
 public class ChessSimulatorTest {
 
     private static ChessSimulator chessSimulator;
+    private static ChessPieceFactory chessPieceFactory;
 
     @BeforeClass
     public static void initialize() {
         chessSimulator = ChessSimulator.getInstance();
+        chessPieceFactory = new ChessPieceFactory();
     }
 
     @Test(expected = InvalidInputException.class)
@@ -31,6 +33,16 @@ public class ChessSimulatorTest {
     @Test(expected = InvalidInputException.class)
     public void invalidColumnInInputShouldReturnError() {
         chessSimulator.simulateMoves("King Z5");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void nullChessPieceNamePassedToChessPieceFactoryShouldReturnError() {
+        chessPieceFactory.getChessPiece(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void invalidChessPieceNamePassedToChessPieceFactoryShouldReturnError() {
+        chessPieceFactory.getChessPiece("TestChessPieceName");
     }
 
     @Test

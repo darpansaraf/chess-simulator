@@ -5,9 +5,9 @@ import com.chesssimulator.models.*;
 
 public class ChessPieceFactory {
 
-    public ChessPiece getChessPiece(String name){
+    public ChessPiece getChessPiece(final String name){
         if(name == null)
-            return null;
+            throw new IllegalArgumentException("Invalid Chess Piece Name. Chess Piece Name cannot be null");
 
         if (name.equalsIgnoreCase(CommonConstants.ChessPieces.ROOK))
             return new Rook();
@@ -27,7 +27,7 @@ public class ChessPieceFactory {
         if (name.equalsIgnoreCase(CommonConstants.ChessPieces.QUEEN))
             return new Queen();
 
-        return null;
+        throw new IllegalArgumentException("Invalid Chess Piece Name");
     }
 
 }
