@@ -9,6 +9,16 @@ import java.util.stream.Collectors;
 
 public class ChessSimulator {
 
+    private static final ChessSimulator CHESS_SIMULATOR_INSTANCE = new ChessSimulator();
+
+    private ChessSimulator() {
+
+    }
+
+    public static ChessSimulator getInstance(){
+        return CHESS_SIMULATOR_INSTANCE;
+    }
+
     public String simulateMoves(String input){
 
         String[] tokens = input.split(" ");

@@ -15,7 +15,7 @@ public class ChessSimulatorTest {
 
     @BeforeClass
     public static void initialize() {
-        chessSimulator = new ChessSimulator();
+        chessSimulator = ChessSimulator.getInstance();
     }
 
     @Test(expected = InvalidInputException.class)

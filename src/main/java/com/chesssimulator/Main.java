@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Enter Type and Position of Chess Piece(Ex: King D5):");
 
         String input = new Scanner(System.in).nextLine();
-        String possibleMoves = new ChessSimulator().simulateMoves(input);
+        String possibleMoves = ChessSimulator.getInstance().simulateMoves(input);
         System.out.println(possibleMoves);
 
     }
